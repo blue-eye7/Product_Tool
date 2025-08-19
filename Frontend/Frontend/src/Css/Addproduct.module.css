@@ -1,0 +1,116 @@
+.container {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.heading {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.input,
+.select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border 0.3s;
+}
+
+.input:focus,
+.select:focus {
+  border-color: #2575fc;
+  outline: none;
+}
+
+.addCatButton {
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+  margin-top: 10px;
+}
+
+.addCatButton:hover {
+  background: #e68900;
+}
+
+.newCategoryBox {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.subheading {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.attributesList {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.addAttributeSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addButton {
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.addButton:hover {
+  background: #e68900;
+}
+
+.submitButton {
+  background: #2575fc;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 20px;
+}
+
+.submitButton:hover {
+  background: #1a5edb;
+}
