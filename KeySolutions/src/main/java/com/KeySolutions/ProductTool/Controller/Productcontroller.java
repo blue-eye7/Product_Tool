@@ -3,6 +3,7 @@ package com.KeySolutions.ProductTool.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.KeySolutions.ProductTool.Entity.Category;
 import com.KeySolutions.ProductTool.Entity.Products;
+import com.KeySolutions.ProductTool.Entity.User;
 import com.KeySolutions.ProductTool.Service.ProductService;
+import com.KeySolutions.ProductTool.Service.UserService;
 
 @RestController
 @RequestMapping("api")
@@ -22,6 +25,12 @@ import com.KeySolutions.ProductTool.Service.ProductService;
 public class Productcontroller {
 	
 	@Autowired ProductService p_service;
+	@Autowired UserService u_service;
+	
+	@PostMapping("login")
+	public ResponseEntity<?> login(@RequestBody User u) {
+		return u_service.login(u);
+	}
 	
 	@GetMapping("getcat")
 	public List<Category> getcat(){
@@ -38,7 +47,7 @@ public class Productcontroller {
 	}
 	@PutMapping("updateprod")
 	public Products updateprod(@RequestBody Products p) {
-		System.out.println("id:----"+p.getId());
+		
 		return p_service.updateproduct(p);
 	}
 	@PostMapping("addcat")

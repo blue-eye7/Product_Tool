@@ -1,20 +1,28 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
-import App from './App.jsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
 import Home from './Components/Home.jsx'
+import { createStore } from 'redux'
 import Login from './Components/Login.jsx'
 import Category from './Components/Category.jsx'
 import Updateproduct from './Components/Updateproduct.jsx'
 import Addproduct from './Components/Addproduct.jsx'
+import { Provider } from 'react-redux'
+import { rootreducer } from './Reducers/loginreducers.js'
+import Logout from './Components/Logout.jsx'
 
+
+var store=createStore(rootreducer)
 createRoot(document.getElementById('root')).render(
 
 
-
-  <BrowserRouter>
+  <Provider store={store}>
+  <BrowserRouter >
+  <Logout/>
     <Routes>
+      
       <Route path="/" element={<Home/>}></Route>
       <Route path='login' element={<Login/>}></Route>
       <Route path='category' element={<Category/>}></Route>
@@ -26,4 +34,5 @@ createRoot(document.getElementById('root')).render(
   
   
   </BrowserRouter>
+  </Provider>
 )

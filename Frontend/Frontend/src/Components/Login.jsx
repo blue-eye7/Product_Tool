@@ -1,12 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
 import styles from "../Css/Login.module.css";
+import {useNavigate} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import { LoginMe } from "../Actions/Loginme";
 
 export default function Login() {
   const initialData = {
     username: "",
     password: "",
   };
+  const Navigate=useNavigate();
+  const Dispatch=useDispatch()
 
   const [formData, setFormData] = useState(initialData);
 
@@ -23,12 +28,18 @@ export default function Login() {
 
     try {
       let res = await axios.post("http://localhost:8080/api/login", formData);
-      console.log(res.data);
+      Navigate('/')
+      Dispatch(LoginMe(true,res.data));
+
+
+     
     } catch (err) {
       console.log(err);
-      alert("Something went wrong");
+      alert("err",err.data);
+
     }
   }
+ 
 
   return (
     <div className={styles.container}>
@@ -58,7 +69,7 @@ export default function Login() {
           className={styles.input}
         />
 
-        <button className={styles.button}>Login</button>
+        <button  className={styles.button}>Login</button>
       </form>
     </div>
   );
