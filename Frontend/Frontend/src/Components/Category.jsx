@@ -7,7 +7,7 @@ export default function Category() {
   const [categories, setCategories] = useState([]);
   const [expandedCategory, setExpandedCategory] = useState(null);
   const [products, setProducts] = useState({});
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -86,6 +86,7 @@ export default function Category() {
           </li>
         ))}
       </ul>
+       <button className={styles.toggleButton} onClick={()=>Navigate('/')}>Home</button>
     </div>
   );
 }

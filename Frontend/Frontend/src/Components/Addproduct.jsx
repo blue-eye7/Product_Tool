@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "../Css/AddProduct.module.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Addproduct() {
   const initialProd = {
@@ -9,6 +10,7 @@ export default function Addproduct() {
     stocks: "",
     atrributes: {},
   };
+  const Navigate=useNavigate()
 
   const [prod, setProd] = useState(initialProd);
   const [cat, setCat] = useState([]);
@@ -184,6 +186,7 @@ export default function Addproduct() {
           Add Product
         </button>
       </form>
+      <button className={styles.addButton} onClick={()=>Navigate('/')}>Home</button>
     </div>
   );
 }

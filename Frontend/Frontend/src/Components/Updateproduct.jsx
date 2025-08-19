@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styles from "../Css/UpdateProduct.module.css";
 
 export default function UpdateProduct() {
@@ -9,6 +9,7 @@ export default function UpdateProduct() {
   const [attributes, setAttributes] = useState({});
   const [newKey, setNewKey] = useState("");
   const [newValue, setNewValue] = useState("");
+  const Navigate=useNavigate()
 
   useEffect(() => {
     async function fetch() {
@@ -119,6 +120,7 @@ export default function UpdateProduct() {
           Update Product
         </button>
       </form>
+       <button className={styles.submitButton} onClick={()=>Navigate('/')}>Home</button>
     </div>
   );
 }
